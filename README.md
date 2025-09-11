@@ -28,7 +28,7 @@ Para esta integración, se unieron ambos proyectos en un solo repositorio, asegu
 
 - No existan submódulos ni `.git` internos en las carpetas, para que Git reconozca todo como un solo repositorio.
 - Se renombraron las carpetas para una mejor organización y claridad.
-- Se añadieron todos los archivos y cambios con `git add -A` para que el repositorio padre detecte correctamente el contenido.
+- Se añadieron todos los archivos y cambios con `git add -a` para que el repositorio padre detecte correctamente el contenido.
 - Esto permite que las carpetas frontend y backend se puedan navegar correctamente en GitHub y VSCode, además de poder gestionarlas desde un único repositorio.
 
 ---
@@ -37,7 +37,7 @@ Para esta integración, se unieron ambos proyectos en un solo repositorio, asegu
 
 1. Clonar este repositorio:
 
-```bash
+bash
 git clone https://github.com/MetamorphosisTeam/fullstack-butterflies.git
 cd fullstack-butterflies
 
