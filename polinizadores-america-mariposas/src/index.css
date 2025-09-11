@@ -1,0 +1,364 @@
+/* THIS FILE CONTAINS THE GLOBAL STYLES + GENERAL STRUCTURE FOR THE WHOLE WEB APP */
+
+
+/* ================================================
+   RESET STYLE + BASE STYLE 
+   ================================================ */
+
+/*---RESET STYLE---*/
+/*Reset and normalize styles in all elements*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*---BASE STYLE---*/
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--color-text-dark);
+    background-color: var(--color-light-beige);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ================================================
+   COLOUR DESIGN VARIABLES
+   ================================================ */
+
+:root {
+    /* ---Primary Colors--- */
+    --color-olive-green: #565939;
+    /* Main brand color, header, footer */
+    --color-light-beige: #F2EFDF;
+    /* Body background, light sections */
+
+    /* ---Accent Colors--- */
+    --color-forest-green: #336D25;
+    /* Primary button */
+    --color-terracotta: #BF6734;
+    /* Secondary buttons, links, emphasis */
+    --color-accent-orange: #F28F16;
+    /* Call to Actions (CTA), highlights, active states */
+    --color-brick-red: #b63329;
+    /* Alerts, errors, important notices */
+    --color-sage-green: #6b8779;
+    /* Success states, subtle accents */
+
+
+    /* ---Text Colors--- */
+    --color-text-dark: #565939;
+    /* Primary text (light background), body text */
+    --color-text-medium: #6b8779;
+    /* Secondary text, descriptions */
+    --color-text-light: #F2EFDF;
+    /* Primary text (dark background) body text, header-footer text */
+
+
+    /* ---Cards Colors---*/
+    --color-card-background: #7F8C69;
+    /* Background */
+    --color-card-header: #E9E8E4;
+    /* Header */
+    --color-card-button-detail: #F2EFDF;
+    /* Botón "Ver Detalle" */
+    --color-card-button-edit: #D4A84A;
+    /* Botón "Editar" */
+
+}
+
+/* ================================================
+   BASE STYLES (MOBILE FIRST - 320px to 767px)
+   ================================================ */
+
+/*---MAIN---*/
+
+#root {
+    background: linear-gradient(135deg, var(--color-light-beige) 0%, var(--color-light-beige) 70%, var(--color-sage-green) 100%);
+}
+
+.content-btn {
+    /*botón añadir mariposa + h2 centralizados*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Unificación de los botones para que tengan la misma transición en toda la web */
+.btns a, .btn-back, .content-btn a{
+    transition: 1.5s ease;
+}
+
+/* Selection styles for text highlighting */
+::-moz-selection { /* Firefox */
+  background: rgba(242, 143, 22, 0.3);
+}
+
+::selection {
+  background: rgba(242, 143, 22, 0.3);
+}
+
+/* Typography - Mobile */
+h1 {
+    font-size: 2rem;
+    /* Smaller for mobile */
+    color: var(--color-olive-green);
+    text-align: center;
+    padding: 0.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin: 2rem 0;
+    color: var(--color-terracotta);
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    /*TODO: FONT TO BE REPLACED WHEN FINAL FONT IS CHOSEN */
+    font-family: "Aladin", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h3 {
+    padding: 0.5rem;
+    font-size: 1.25rem;
+}
+
+main div p {
+    padding: 0.5rem;
+    line-height: 1.5;
+}
+
+/* Map container - Mobile */
+.map-container {
+    height: 300px;
+    /* Smaller for mobile */
+    width: 100%;
+    max-width: 350px;
+    margin: 1rem auto;
+}
+
+.america-map {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+/* ================================================
+   GLOBAL LAYOUT CLASSES FOR COMPONENTS
+   ================================================ */
+
+/* Main app container */
+.app-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/* Page containers */
+.page-container {
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+
+/* ================================================
+   MEDIA QUERIES - TABLET (768px and up)
+   ================================================ */
+@media screen and (min-width: 768px) {
+
+
+    /*---MAIN---*/
+    main {
+        /* margin: 15px; */
+    }
+
+    .flex-container {
+        flex-flow: row wrap;
+        /* Back to row layout */
+        gap: 2rem;
+        /* padding: 2rem; */
+    }
+
+    /* Typography - Tablet */
+    h1 {
+        font-size: 2.5rem;
+        padding: 1rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+        /* padding: 1rem; */
+        text-align: left;
+        /* Left align for larger screens */
+    }
+
+    h3 {
+        padding: 1rem;
+        font-size: 1.5rem;
+    }
+
+    main div p {
+        padding: 1rem;
+    }
+
+    /* Map container - Tablet */
+    .map-container {
+        height: 400px;
+        width: 400px;
+        max-width: none;
+    }
+
+    .america-map {
+        object-fit: fill;
+    }
+
+
+    /* Page containers - Tablet */
+    .page-container {
+        padding: 2rem;
+    }
+
+}
+
+/* ================================================
+   MEDIA QUERIES - LAPTOP (1024px and up)
+   ================================================ */
+@media screen and (min-width: 1024px) {
+
+
+    /*---MAIN---*/
+    main {
+        /* margin: 10px; */
+    }
+
+    .flex-container {
+        gap: 3rem;
+        /* padding: 3rem; */
+    }
+
+    /* Typography - Laptop */
+    h1 {
+        font-size: 3rem;
+        padding: 1rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+        /* padding: 1rem; */
+    }
+
+    /* Map container - Laptop */
+    .map-container {
+        height: 500px;
+        width: 500px;
+    }
+
+
+    /* Page containers - Laptop */
+    .page-container {
+        padding: 3rem;
+        max-width: 1400px;
+    }
+
+
+    /* Hover effects for desktop */
+    .interactive-element {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .interactive-element:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+}
+
+/* ================================================
+   MEDIA QUERIES - DESKTOP (1440px and up)
+   ================================================ */
+@media screen and (min-width: 1440px) {
+
+    /*---HEADER---*/
+
+    .flex-container {
+        gap: 4rem;
+        /* padding: 4rem; */
+    }
+
+    /* Typography - Desktop */
+    h1 {
+        font-size: 3.5rem;
+        padding: 1.5rem;
+    }
+
+    h2 {
+        font-size: 2.25rem;
+        /* padding: 1.5rem; */
+    }
+
+    /* Map container - Desktop */
+    .map-container {
+        height: 600px;
+        width: 600px;
+    }
+
+    /* Navigation - Desktop */
+
+
+    /* Page containers - Desktop */
+    .page-container {
+        padding: 4rem;
+        max-width: 1600px;
+    }
+}
+
+/* ================================================
+   MEDIA QUERIES - ULTRA WIDE (1920px and up)
+   ================================================ */
+@media screen and (min-width: 1920px) {
+
+    .flex-container {
+        padding: 5rem;
+    }
+
+    /* Typography - Ultra Wide */
+    h1 {
+        font-size: 4rem;
+    }
+
+    /* Map container - Ultra Wide */
+    .map-container {
+        height: 700px;
+        width: 700px;
+    }
+
+    /* Page containers - Ultra Wide */
+    .page-container {
+        max-width: 1800px;
+    }
+}
+
+
+
+
+
