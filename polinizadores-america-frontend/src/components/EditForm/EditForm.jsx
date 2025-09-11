@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import Input from '../EditForm/ImageUploadEdit'; // Importamos el componente de Cloudinary
+import Input from './ImageUploadEdit'; // Importamos el componente de Cloudinary
 // Importaciones de iconos:
 import { IoImageOutline, IoCalendarOutline } from "react-icons/io5";
 import { HiOutlineGlobeAmericas } from "react-icons/hi2";

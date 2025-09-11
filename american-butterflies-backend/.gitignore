@@ -1,0 +1,16 @@
+node_modules
+
+
+# macOS system files
+.DS_Store
+**/.DS_Store
+.DS_Store?
+._*
+
+# Variables de entorno
+.env
+.env.desarrollo.local
+.env.test.local
+.env.producción.local
+.env.local
+test-env.js
