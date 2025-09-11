@@ -5,8 +5,8 @@ Este repositorio contiene la integración de dos proyectos previamente desarroll
 - **Frontend:** Aplicación React para mostrar y consumir datos de mariposas.  
   Repositorio original: https://github.com/irinatiron/polinizadores-america-mariposas.git
 
-- **Backend:** API REST construida con Node.js y Express.  
-  Repositorio original: https://github.com/MetamorphosisTeam/american-butterflies-api.git
+- **Backend:** API REST construida con Node.js y Express en MongoDB.  
+  Repositorio original: https://github.com/MetamorphosisTeam/american-butterflies-mongodb.git
 
 ---
 
