@@ -1,64 +1,96 @@
-🧩 Integración Frontend + Backend - Proyecto "Fullstack Butterflies"
+# 🧩 Integración Frontend + Backend - Proyecto "Fullstack Butterflies"
 
 Este repositorio contiene la integración de dos proyectos previamente desarrollados por separado:
 
-Frontend: Aplicación React para mostrar y consumir datos de mariposas.
-del repositorio: https://github.com/irinatiron/polinizadores-america-mariposas.git
+- **Frontend:** Aplicación React para mostrar y consumir datos de mariposas.  
+  Repositorio original: https://github.com/irinatiron/polinizadores-america-mariposas.git
 
-Backend: API REST construida con Node.js y Express.
-del repositorio: https://github.com/MetamorphosisTeam/american-butterflies-api.git
+- **Backend:** API REST construida con Node.js y Express.  
+  Repositorio original: https://github.com/MetamorphosisTeam/american-butterflies-api.git
 
-📁 Estructura del proyecto
+---
+
+## 📁 Estructura del proyecto
+
 fullstack-butterflies/
-├── american-butterflies-api/        # Backend (Node + Express)
-├── butterflies-frontend/            # Frontend (React + Vite)
+├── american-butterflies-backend/ # Backend (Node + Express)
+├── polinizadores-america-frontend/ # Frontend (React + Vite)
 ├── README.md
 
-⚙️ Integración paso a paso
-1. Clonar este repositorio
+yaml
+Copy code
+
+---
+
+## ⚙️ Integración y estado actual
+
+Para esta integración, se unieron ambos proyectos en un solo repositorio, asegurando que:
+
+- No existan submódulos ni `.git` internos en las carpetas, para que Git reconozca todo como un solo repositorio.
+- Se renombraron las carpetas para una mejor organización y claridad.
+- Se añadieron todos los archivos y cambios con `git add -A` para que el repositorio padre detecte correctamente el contenido.
+- Esto permite que las carpetas frontend y backend se puedan navegar correctamente en GitHub y VSCode, además de poder gestionarlas desde un único repositorio.
+
+---
+
+## ⚙️ Cómo usar el repositorio
+
+1. Clonar este repositorio:
+
+```bash
 git clone https://github.com/MetamorphosisTeam/fullstack-butterflies.git
 cd fullstack-butterflies
+Instalar dependencias:
 
-2. Instalar dependencias
 Backend:
-cd american-butterflies-api
-npm install
 
+bash
+Copy code
+cd american-butterflies-backend
+npm install
 Frontend:
-cd ../butterflies-frontend
-npm install
 
-3. Configurar variables de entorno
-Backend (american-butterflies-api/.env):
+bash
+Copy code
+cd ../polinizadores-america-frontend
+npm install
+Configurar variables de entorno:
+
+Backend (american-butterflies-backend/.env):
+
+ini
+Copy code
 PORT=8000
 # (Más variables si usas MongoDB u otras)
+Frontend (polinizadores-america-frontend/.env):
 
-Frontend (butterflies-frontend/.env):
+bash
+Copy code
 VITE_API_URL=http://localhost:8000/butterflies
+Verificar que el frontend use la variable de entorno:
 
-
-⚠️ Esto reemplaza las URLs directas en el código y permite cambiar de entorno fácilmente (desarrollo/producción).
-
-4. Verificar conexión
-
-Asegúrate de que en el frontend, los servicios consuman la variable de entorno:
-
+js
+Copy code
 const URL_API = import.meta.env.VITE_API_URL;
+Ejecutar localmente:
 
-5. Ejecutar la aplicación localmente
 Backend:
-cd american-butterflies-api
+
+bash
+Copy code
+cd american-butterflies-backend
 npm start
 # o node app.js
-
 Frontend:
-cd ../butterflies-frontend
+
+bash
+Copy code
+cd ../polinizadores-america-frontend
 npm run dev
-
 🧪 Resultado esperado
-
-El backend estará corriendo en http://localhost:8000. (o en el especificado en el punto.env)
+El backend estará corriendo en http://localhost:8000 (o el puerto que hayas configurado).
 
 El frontend se iniciará en http://localhost:5173 y consumirá datos desde el backend.
 
-Las mariposas se mostrarán en pantalla a partir de los datos de la API.
+Las mariposas se mostrarán en pantalla usando los datos que proporciona la API.
+
