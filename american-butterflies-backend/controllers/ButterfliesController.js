@@ -1,7 +1,7 @@
 import ButterfliesModel from "../models/ButterfliesModel.js";
 import { Op } from "sequelize";
 
-// Obtener todas las mariposas
+// Obtener todas las mariposas 
 export const getAllButterflies = async (req, res) => {
     try {
         const butterflies = await ButterfliesModel.findAll();
@@ -96,7 +96,7 @@ export const getAllButterfliesForAdmin = async (req, res) => {
 };
 
 
-// Obtener mariposa borrada por ID
+// Obtener mariposa borrada por ID //
 export const getDeletedButterfly = async (req, res) => {
   try {
     const butterfly = await ButterfliesModel.scope('withDeleted').findByPk(req.params.id);

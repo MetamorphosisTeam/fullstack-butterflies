@@ -11,14 +11,12 @@ Este repositorio contiene la integración de dos proyectos previamente desarroll
 ---
 
 ## 📁 Estructura del proyecto
-
+```
 fullstack-butterflies/
 ├── american-butterflies-backend/ # Backend (Node + Express)
 ├── polinizadores-america-frontend/ # Frontend (React + Vite)
 ├── README.md
-
-yaml
-Copy code
+```
 
 ---
 
@@ -37,59 +35,70 @@ Para esta integración, se unieron ambos proyectos en un solo repositorio, asegu
 
 1. Clonar este repositorio:
 
-bash
+```bash
 git clone https://github.com/MetamorphosisTeam/fullstack-butterflies.git
 cd fullstack-butterflies
-
+```
 
 Instalar dependencias:
 
 Backend:
-Copiar en bash:
+```bash
 - cd american-butterflies-backend
 - npm install
+```
 
 Frontend:
-Copiar en bash
+```bash
 cd ../polinizadores-america-frontend
 npm install
+```
 
-Configurar variables de entorno:
+#Configurar variables de entorno:
+```bash
 Desde la raiz del proyecto crear un archivo .env 
 copiar el contenido del .env example
+```
+## utilizar terminales independientes para el back y para el front.
 
 Backend (american-butterflies-backend/.env):
-npm init
-Copy code
+```bash
+npm i
+```
+```
 PORT=8000
 # (Cambiar la variable si usas MongoDB u otro puerto)
+```
 
 Frontend (polinizadores-america-frontend/.env):
-copiar en bash
-npm init
+```bash
+npm i
+```
 
 Verificar que el frontend use la variable de entorno (puerto) 
 
 en el archivo ButterflyServices.jsx cambiar la constante por esta:
+```bash
 const URL_API = import.meta.env.VITE_API_URL;
+``` 
 para poder utilizar el puerto local que corresponda.
 
 ## Ejecutar localmente:
 
 Backend:
-
-copiar en bash:
+```bash
 cd american-butterflies-backend
 node app.js
-
+```
 
 Frontend:
-copiar en bash:
+```bash
 cd ../polinizadores-america-frontend
 npm run dev
+```
 
+## 🧪 Resultado esperado:
 
-## 🧪 Resultado esperado
 El backend estará corriendo en http://localhost:8000 (o el puerto que hayas configurado).
 
 El frontend se iniciará en http://localhost:5173 y consumirá datos desde el backend.
