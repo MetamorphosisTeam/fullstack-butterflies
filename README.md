@@ -1,107 +1,149 @@
-# 🧩 Integración Frontend + Backend - Proyecto "Fullstack Butterflies"
+# 🧩 Proyecto Fullstack Butterflies - Integración Frontend + Backend (en MySQL y MongoDB)
 
-Este repositorio contiene la integración de dos proyectos previamente desarrollados por separado:
+Este proyecto combina **frontend y backend** para ofrecer una experiencia completa en la gestión de Mariposas de America.  
+La idea es que puedas **clonar el frontend** y luego elegir **qué backend quieres usar**, según el stack que prefieras.
+
+En este repositorio podras encontrar la forma de integrar los proyectos desarrollados:
 
 - **Frontend:** Aplicación React para mostrar y consumir datos de mariposas.  
   Repositorio original: https://github.com/irinatiron/polinizadores-america-mariposas.git
 
-- **Backend:** API REST construida con Node.js y Express en MongoDB.  
-  Repositorio original: https://github.com/MetamorphosisTeam/american-butterflies-mongodb.git
+- **Backend MySQL:** API REST construida con Node.js y Express con Sequalize.  
+  Repositorio original: https://github.com/MetamorphosisTeam/american-butterflies-api.git
+
+- **Backend MongoDB:** API REST construida con Node.js y Express con Mongoose.  
+  Repositorio original: https://github.com/MetamorphosisTeam/american-butterflies-mongodb.git  
+
+---
+
+## ⚙️ Integración 
+
+Si deseas unir el frontend y el backend en un solo repositorio para tener la versión **fullstack**, debes asegurarte de:
+
+- Clonar los proyectos dentro de un mismo repositorio vacío (sin submódulos).  
+- Eliminar cualquier carpeta `.git` interna dentro de **frontend** o **backend**, para que Git reconozca todo como un único proyecto.  
+- Renombrar las carpetas si es necesario, para mantener una organización clara (por ejemplo: `frontend/` y `backend/`).  
+- Añadir todos los archivos y cambios con:
+  
+  ```bash
+  git add -A
+  git commit -m "Integración frontend + backend"
+  ```
 
 ---
 
 ## 📁 Estructura del proyecto
-```
-fullstack-butterflies/
-├── american-butterflies-backend/ # Backend (Node + Express)
-├── polinizadores-america-frontend/ # Frontend (React + Vite)
-├── README.md
-```
+
+- **Frontend** → React + Vite, con validaciones, subida de imágenes a Cloudinary y un diseño intuitivo.  
+- **Backend (opcional, elige uno o prueba ambos si deseas):**
+  
+  - 🐘 **API con MySQL + Sequelize** → Ideal para trabajar con bases de datos relacionales.  
+  - 🍃 **API con MongoDB + Mongoose** → Perfecta para explorar un enfoque documental y flexible.  
 
 ---
 
-## ⚙️ Integración y estado actual
+## ⚙️ Cómo usar este proyecto
 
-Para esta integración, se unieron ambos proyectos en un solo repositorio, asegurando que:
+Puedes organizar el proyecto de dos maneras:
 
-- No existan submódulos ni `.git` internos en las carpetas, para que Git reconozca todo como un solo repositorio.
-- Se renombraron las carpetas para una mejor organización y claridad.
-- Se añadieron todos los archivos y cambios con `git add -a` para que el repositorio padre detecte correctamente el contenido.
-- Esto permite que las carpetas frontend y backend se puedan navegar correctamente en GitHub y VSCode, además de poder gestionarlas desde un único repositorio.
+- **Opción recomendada**: clonar los repositorios del frontend y el backend dentro de una misma carpeta para tener todo a mano.  
+- **Opción alternativa**: clonar los repositorios por separado y gestionarlos de forma independiente.
 
----
+### 1. Clonar los repositorios
 
-## ⚙️ Cómo usar el repositorio
-
-1. Clonar este repositorio:
-
+**Frontend:**
 ```bash
-git clone https://github.com/MetamorphosisTeam/fullstack-butterflies.git
-cd fullstack-butterflies
+git clone https://github.com/MetamorphosisTeam/FRONT-polinizadores-america-mariposas.git
 ```
 
-Instalar dependencias:
-
-Backend:
+**Backend MySQL:**
 ```bash
-- cd american-butterflies-backend
+git clone https://github.com/MetamorphosisTeam/american-butterflies-api.git
+```
+o 
+
+**Backend MongoDB:**
+```bash
+git clone https://github.com/MetamorphosisTeam/american-butterflies-mongodb.git
+```
+
+### 2. Instalar dependencias de cada repositorio
+
+ - Si usaste la opcion recomendada y clonaste los repositorios dentro de una misma carpeta debes entrar en cada uno e instalar por separado, ayudate de diferentes terminales para facilitar el trabajo.
+ - Si usaste carpetas individuales, solo debes instalar en la terminal estando en la base del proyecto.
+
+Para el Backend:
+```bash
+- cd american-butterflies-backend (o el nombre que le hayas dado/ tenga la carpeta del Backend)
 - npm install
 ```
 
-Frontend:
+Para el Frontend:
 ```bash
-cd ../polinizadores-america-frontend
+cd polinizadores-america-frontend (o el nombre que le hayas dado/ tenga la carpeta del Frontend)
 npm install
 ```
 
-#Configurar variables de entorno:
-```bash
-Desde la raiz del proyecto crear un archivo .env 
-copiar el contenido del .env example
-```
-## utilizar terminales independientes para el back y para el front.
+### 3. Configurar las variables de entorno (.env)
 
-Backend (american-butterflies-backend/.env):
+ - Para la opción recomendada (una misma carpeta)
 ```bash
-npm i
-```
-```
+Desde la raiz del proyecto crear un archivo .env
+copia el contenido del .env.example del backend
+ajusta la variable del puerto:
+
 PORT=8000
 # (Cambiar la variable si usas MongoDB u otro puerto)
 ```
 
-Frontend (polinizadores-america-frontend/.env):
+ - Para la opción alternativa (una carpeta por repositorio)
 ```bash
-npm i
+crear un archivo .env en tu carpeta del BackEnd
+copia el contenido del .env.example
+ajusta la variable del puerto:
+
+PORT=8000
+# (Cambiar la variable si usas MongoDB u otro puerto)
 ```
 
-Verificar que el frontend use la variable de entorno (puerto) 
+## 4. Conecta ambos proyectos 
 
-en el archivo ButterflyServices.jsx cambiar la constante por esta:
+Verificar que el frontend use la variable de entorno (puerto) correcto, en el archivo **src/services/ButterflyServices.jsx (FrontEnd)** cambiar la constante por esta:
 ```bash
-const URL_API = import.meta.env.VITE_API_URL;
+const URL_API = http://localhost:8000/butterflies
+#PORT=8000 (o el que use tu servidor local)
 ``` 
-para poder utilizar el puerto local que corresponda.
 
-## Ejecutar localmente:
+# Ejecutar localmente:
 
 Backend:
 ```bash
-cd american-butterflies-backend
+#En caso de la opcion recomendada
+cd american-butterflies-backend (o el nombre que le hayas dado/ tenga la carpeta del Backend)
+
 node app.js
+
 ```
 
 Frontend:
 ```bash
-cd ../polinizadores-america-frontend
+#En caso de la opcion recomendada
+cd polinizadores-america-frontend (o el nombre que le hayas dado/ tenga la carpeta del Frontend)
+
 npm run dev
+
 ```
 
-## 🧪 Resultado esperado:
+---
+
+
+## 🧪 Resultado esperado: y disfruta explorando y gestionando mariposas.
 
 El backend estará corriendo en http://localhost:8000 (o el puerto que hayas configurado).
 
 El frontend se iniciará en http://localhost:5173 y consumirá datos desde el backend.
 
 Las mariposas se mostrarán en pantalla usando los datos que proporciona la API.
+
+---
 
