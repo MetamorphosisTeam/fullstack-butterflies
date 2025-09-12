@@ -114,7 +114,7 @@ const URL_API = http://localhost:8000/butterflies
 #PORT=8000 (o el que use tu servidor local)
 ``` 
 
-# Ejecutar localmente:
+## Ejecutar localmente:
 
 Backend:
 ```bash
@@ -137,13 +137,14 @@ npm run dev
 ---
 
 
-## 🧪 Resultado esperado: y disfruta explorando y gestionando mariposas.
+## 🧪 Resultado esperado:  
 
 El backend estará corriendo en http://localhost:8000 (o el puerto que hayas configurado).
 
 El frontend se iniciará en http://localhost:5173 y consumirá datos desde el backend.
 
-Las mariposas se mostrarán en pantalla usando los datos que proporciona la API.
+Las mariposas se mostrarán en pantalla usando los datos que proporciona la API, disfruta explorando y gestionando la web a tu gusto.
+
 
 ---
 
